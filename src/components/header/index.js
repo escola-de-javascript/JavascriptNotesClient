@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar, Container } from 'rbx';
 import logoImage from '../../assets/images/logo.png';
 import '../../styles/header.scss';
 
 function Header() {
-  const [ openMenu, setOpenMenu ] = useState(false);
-
   return(
     <Navbar>
       <Container>
@@ -22,10 +20,7 @@ function Header() {
           </Navbar.Burger>
         </Navbar.Brand>
 
-        <Navbar.Menu id="navbar-menu"
-          // active={openMenu.toString()}
-          // onClick={() => setOpenMenu(!openMenu)}
-        >
+        <Navbar.Menu id="navbar-menu">
           <Navbar.Segment as="div" className="navbar-item navbar-end" align="right">
             Item 1
           </Navbar.Segment>
