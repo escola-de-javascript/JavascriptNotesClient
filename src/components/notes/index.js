@@ -30,6 +30,15 @@ function Notes(props) {
     fetchNotes();
   }
 
+  const updateNote = async (oldNote, params) => {
+    const updatedNote = await NotesService.update(oldNote._id, params);
+    const index = notes.indexOf(oldNote);
+    const newNotes = notes;
+    newNotes[index] = updatedNote.data;
+    setNotes(newNotes);
+    setCurrentNote(updatedNote.data);
+  }
+
   const selectNote = (id) => {
     const note = notes.find((note) => {
       return note._id == id;
@@ -68,7 +77,10 @@ function Notes(props) {
 
 
         <Column size={12} className="notes-editor" id="notes-editor">
-          <Editor note={current_note}/>
+          <Editor 
+            note={current_note}
+            updateNote={updateNote}  
+          />
         </Column>
       </Column.Group>
     </Fragment>
