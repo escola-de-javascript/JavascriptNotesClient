@@ -12,6 +12,11 @@ function ListNotes(props) {
             {props.notes.length} Notes
           </Title>
         </Column>
+        <Column size={2}>
+          <Button state="active" color="custom-purple" outlined size="small" onClick={() => props.createNote()}>
+            Notes +
+          </Button>
+        </Column>
       </Column.Group>
       <List className="notes-list">
         {props.notes.map((item, key) =>
