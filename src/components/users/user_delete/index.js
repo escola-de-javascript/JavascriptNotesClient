@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from "rbx";
 import UsersService from '../../../services/users';
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function UsersDelete() {
   const [redirectToHome, setRedirectToHome] = useState(false);
@@ -14,7 +14,7 @@ function UsersDelete() {
   }
 
   if(redirectToHome)
-    return <Redirect to={{pathname: "/"}}/>
+    return <Navigate replace to="/" />
 
   return(
     <Button color="danger" onClick={() => deleteUser()}>

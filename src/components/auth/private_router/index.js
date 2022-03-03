@@ -1,12 +1,8 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 
-const privateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => (
-    localStorage.getItem('user')
-    ? <Component {...props} />
-    : <Redirect to={{ pathname: '/login' }} />
-  )}/>
+const privateRoute = ({ children }) => (
+localStorage.getItem('user') ? children : <Navigate replace to="/login" />
 )
 
 export default privateRoute;

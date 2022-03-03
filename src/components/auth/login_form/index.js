@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Button, Field, Control, Input, Column, Section, Help, Label } from "rbx";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import UsersService from '../../../services/users';
 
 function LoginForm() {
@@ -22,9 +22,9 @@ function LoginForm() {
   }
 
   if(redirectToRegister)
-    return <Redirect to={{pathname: "/register"}}/>
+    return <Navigate replace to="/register" />
   else if(redirectToNotes)
-    return <Redirect to={{pathname: "/notes"}}/>
+    return <Navigate replace to="/notes" />
 
   return (
     <Fragment>
