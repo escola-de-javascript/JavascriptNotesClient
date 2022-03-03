@@ -3,7 +3,7 @@ import { Navbar, Container, Column, Button, Dropdown } from 'rbx';
 import logoImage from '../../assets/images/logo-white.png';
 import "../../styles/header.scss";
 import UsersService from '../../services/users';
-import { Redirect, Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 
@@ -17,7 +17,7 @@ function HeaderLogged(props) {
   }
 
   if (redirectToHome == true)
-    return <Redirect to={{ pathname: "/" }} />
+    return <Navigate replace to="/" />
 
   return (
     <Navbar color="custom-purple" className="navbar-logged">

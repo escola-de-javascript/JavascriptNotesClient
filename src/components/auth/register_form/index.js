@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Button, Field, Control, Input, Column, Section, Help, Label } from "rbx";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import UsersService from '../../../services/users';
 
 
@@ -23,7 +23,7 @@ function RegisterForm() {
 
 
   if(redirectToLogin)
-    return <Redirect to={{pathname: "/login"}}/>
+    return <Navigate replace to="/login" />
 
   return (
     <Fragment>
